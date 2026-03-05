@@ -112,13 +112,6 @@ function initAnimations() {
     });
   });
 
-  // CTA headline
-  gsap.set('.cta__headline', { visibility: 'visible' });
-  gsap.from('.cta__headline', {
-    y: 60, opacity: 0, duration: 1.2, ease: 'power3.out',
-    scrollTrigger: { trigger: '.cta__headline', start: 'top 85%', once: true }
-  });
-
   // Floating CTA — show after scrolling past hero, hide when CTA form is visible
   var floatingCta = document.getElementById('floatingCta');
   if (floatingCta) {
