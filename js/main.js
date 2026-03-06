@@ -66,6 +66,13 @@ function initAnimations() {
       scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
   });
 
+  // CTA headline — use section as trigger for reliable bottom-of-page animation
+  var ctaHeadline = document.querySelector('.cta__headline');
+  if (ctaHeadline) {
+    gsap.from(ctaHeadline, { y: 60, opacity: 0, duration: 1.2, ease: 'power3.out',
+      scrollTrigger: { trigger: '#cta', start: 'top 85%', once: true } });
+  }
+
   // Fear image parallax
   gsap.to('.fear__image', {
     yPercent: 8, scale: 1.05,

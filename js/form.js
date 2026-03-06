@@ -15,7 +15,8 @@
       name: fd.get('name'),
       email: fd.get('email'),
       concern: fd.get('concern'),
-      skintype: fd.get('skintype') || ''
+      skintype: fd.get('skintype') || '',
+      consent: fd.get('consent') ? 'yes' : 'no'
     };
 
     if (btn) { btn.disabled = true; btn.querySelector('.cta__btn-text').textContent = 'Submitting...'; }
