@@ -13,6 +13,7 @@
     var fd = new FormData(form);
     var payload = {
       name: fd.get('name'),
+      product: fd.get('product'),
       email: fd.get('email'),
       concern: fd.get('concern'),
       skintype: fd.get('skintype') || '',

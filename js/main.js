@@ -80,6 +80,9 @@ function initAnimations() {
   });
 
   // Ingredient items stagger
+  document.querySelectorAll('.ingredient__item').forEach(function(el) {
+    gsap.set(el, { visibility: 'visible' });
+  });
   gsap.from('.ingredient__item', {
     y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out',
     scrollTrigger: { trigger: '.ingredient__list', start: 'top 80%', once: true }
