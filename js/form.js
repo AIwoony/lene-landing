@@ -1,5 +1,5 @@
 (function () {
-  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbwBgTz0ntYWJkevRKoucnuxVc1m4bYyuB6dDRNuOoJHJeVlzhVYQNCoKXgnr9w5hbZqag/exec';
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbyGEY7L4l-dHXr5T9orPE7sUE0ZanwiHVxN2NfflhTrg3pnTk340eeQvZfLdaWV_r6lFw/exec';
 
   var form = document.getElementById('leadForm');
   var success = document.getElementById('formSuccess');
@@ -11,16 +11,16 @@
     if (!form.checkValidity()) { form.reportValidity(); return; }
 
     var fd = new FormData(form);
+    var concept = window.location.pathname.indexOf('b.html') !== -1 ? 'B' : 'A';
+
     var payload = {
       name: fd.get('name'),
       product: fd.get('product'),
       email: fd.get('email'),
       concern: fd.get('concern'),
       skintype: fd.get('skintype') || '',
-      consent: fd.get('consent') ? 'yes' : 'no'
+      concept: concept
     };
-
-    var concept = window.location.pathname.indexOf('b.html') !== -1 ? 'B' : 'A';
 
     // Show success immediately, send in background
     form.style.display = 'none';
