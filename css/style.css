@@ -35,6 +35,7 @@ input, select, textarea { font-family: inherit; }
 /* Preloader */
 .preloader { position: fixed; inset: 0; background: var(--c-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10000; gap: 24px; }
 .preloader__text { font-family: var(--f-serif); font-size: clamp(24px, 4vw, 40px); font-weight: var(--fw-light); letter-spacing: 0.08em; }
+.preloader__sub { font-family: var(--f-serif); font-size: clamp(12px, 1.5vw, 16px); font-weight: var(--fw-light); font-style: italic; letter-spacing: 0.06em; color: var(--c-text-sub); }
 .preloader__bar { width: 120px; height: 1px; background: rgba(26,26,26,0.15); overflow: hidden; }
 .preloader__bar-inner { width: 0%; height: 100%; background: var(--c-text); }
 
@@ -53,7 +54,7 @@ input, select, textarea { font-family: inherit; }
 .hero__bg::after { content: ""; position: absolute; inset: 0; background: rgba(250,248,245,0.3); z-index: 1; }
 .hero__content { position: relative; z-index: 2; text-align: center; }
 .hero__logo { font-family: var(--f-serif); font-size: clamp(56px, 12vw, 140px); font-weight: var(--fw-light); letter-spacing: 0.06em; line-height: 1; margin-bottom: clamp(12px, 1.5vw, 24px); }
-.hero__tagline { font-family: var(--f-serif); font-size: clamp(14px, 2vw, 22px); font-weight: var(--fw-light); font-style: italic; letter-spacing: 0.06em; color: var(--c-text-sub); }
+.hero__tagline { font-family: var(--f-serif); font-size: clamp(16px, 2.2vw, 24px); font-weight: var(--fw-regular); font-style: italic; letter-spacing: 0.06em; color: var(--c-text); text-shadow: 0 1px 8px rgba(250,248,245,0.6); }
 .hero__scroll-indicator { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 2; }
 .hero__scroll-text { font-size: 11px; font-weight: var(--fw-medium); letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-text-sub); }
 .hero__scroll-line { width: 1px; height: 40px; background: rgba(26,26,26,0.15); position: relative; overflow: hidden; }

@@ -20,21 +20,17 @@
       consent: fd.get('consent') ? 'yes' : 'no'
     };
 
-    if (btn) { btn.disabled = true; btn.querySelector('.cta__btn-text').textContent = 'Submitting...'; }
+    // Show success immediately, send in background
+    form.style.display = 'none';
+    success.style.display = 'flex';
+    gsap.from('.success__check', { scale: 0, duration: 0.6, ease: 'back.out(1.7)' });
+    gsap.from('.success__text', { y: 20, opacity: 0, duration: 0.5, delay: 0.3 });
+    gsap.from('.success__sub', { y: 15, opacity: 0, duration: 0.4, delay: 0.5 });
 
     fetch(SHEET_URL, {
       method: 'POST',
       body: JSON.stringify(payload)
-    }).then(function () {
-      form.style.display = 'none';
-      success.style.display = 'flex';
-      gsap.from('.success__check', { scale: 0, duration: 0.6, ease: 'back.out(1.7)' });
-      gsap.from('.success__text', { y: 20, opacity: 0, duration: 0.5, delay: 0.3 });
-      gsap.from('.success__sub', { y: 15, opacity: 0, duration: 0.4, delay: 0.5 });
-    }).catch(function () {
-      if (btn) { btn.disabled = false; btn.querySelector('.cta__btn-text').textContent = 'Get Notified at Launch'; }
-      alert('Something went wrong. Please try again.');
-    });
+    }).catch(function () {});
   });
 
   document.querySelectorAll('.form__group select').forEach(function (sel) {
