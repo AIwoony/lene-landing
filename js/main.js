@@ -122,6 +122,20 @@ function initAnimations() {
     });
   });
 
+  // GA4 CTA click tracking
+  var concept = window.location.pathname.indexOf('b.html') !== -1 ? 'B' : 'A';
+  document.querySelectorAll('.product__cta-link, .clinical__cta-link, .floating-cta').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_click', {
+          concept: concept,
+          button_location: el.classList.contains('floating-cta') ? 'floating' :
+            el.classList.contains('product__cta-link') ? 'product' : 'clinical'
+        });
+      }
+    });
+  });
+
   // Floating CTA — show after scrolling past hero, hide when CTA form is visible
   var floatingCta = document.getElementById('floatingCta');
   if (floatingCta) {
