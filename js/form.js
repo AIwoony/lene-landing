@@ -20,16 +20,7 @@
       consent: fd.get('consent') ? 'yes' : 'no'
     };
 
-    // GA4 lead event with parameters
     var concept = window.location.pathname.indexOf('b.html') !== -1 ? 'B' : 'A';
-    if (typeof gtag === 'function') {
-      gtag('event', 'generate_lead', {
-        concept: concept,
-        product: payload.product,
-        concern: payload.concern,
-        skintype: payload.skintype
-      });
-    }
 
     // Show success immediately, send in background
     form.style.display = 'none';
@@ -41,6 +32,22 @@
     fetch(SHEET_URL, {
       method: 'POST',
       body: JSON.stringify(payload)
+    }).then(function () {
+      // GA4 lead event — fires after successful submission
+      if (typeof gtag === 'function') {
+        gtag('event', 'lead', {
+          concept: concept,
+          product: payload.product,
+          concern: payload.concern,
+          skintype: payload.skintype
+        });
+      }
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: payload.product,
+          content_category: concept
+        });
+      }
     }).catch(function () {});
   });
 
