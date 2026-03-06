@@ -1,5 +1,5 @@
 (function () {
-  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxp1QVW6bAUIjqqzVtoQ7ydh1K5DdCepPx0sU7Sur3qWQjI8fR6xljdlEyafS39tMeugQ/exec';
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbwBgTz0ntYWJkevRKoucnuxVc1m4bYyuB6dDRNuOoJHJeVlzhVYQNCoKXgnr9w5hbZqag/exec';
 
   var form = document.getElementById('leadForm');
   var success = document.getElementById('formSuccess');
